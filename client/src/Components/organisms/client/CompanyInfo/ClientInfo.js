@@ -20,6 +20,9 @@ export default function ClientInfo() {
         setLoading(false);
         if (response.data.statusCode === 200) {
           dispatch(setUserType(2, 2, id));
+        } else {
+          setLoading(false);
+          alert(response.data.message);
         }
       })
       .catch((error) => {
@@ -59,7 +62,7 @@ export default function ClientInfo() {
                 handelClick();
               }}
               type="submit"
-              className="fadeIn fourth"
+              className="fadeIn fourth submit-button"
               style={{ backgroundColor: "teal", marginTop: "20px" }}
               value={t("GetIn")}
             />

@@ -29,6 +29,7 @@ export default function CreateNewUser() {
           setloading(false);
           alert(t("user_added"));
         } else {
+          setloading(false);
           alert(t("user_added_err"));
         }
       })

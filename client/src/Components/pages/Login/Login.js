@@ -48,6 +48,7 @@ export default function Login(props) {
           setLoading(false);
           props.history.replace("/");
         } else {
+          setLoading(false);
           alert(response.data.message);
         }
       })
