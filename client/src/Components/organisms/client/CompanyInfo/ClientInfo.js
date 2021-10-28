@@ -31,7 +31,7 @@ export default function ClientInfo() {
   };
 
   return (
-    <div>
+    <div className="text-center">
       <Loader active={Loading} />
       <div className="wrapper fadeInDown">
         <div id="formContent">

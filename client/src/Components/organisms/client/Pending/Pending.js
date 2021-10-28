@@ -12,9 +12,7 @@ const Pending = (props) => {
   setInterval(() => {
     API.get("/status?userId=" + id)
       .then((response) => {
-        console.log(response);
         if (response.data.statusCode === 200) {
-          console.log(response.data);
           dispatch(setUserType(2, response.data.isauth, id));
           props.history.push("/login");
         }
@@ -25,7 +23,7 @@ const Pending = (props) => {
   }, 15000);
 
   return (
-    <div style={{ background: "white" }}>
+    <div className="text-center">
       <h1>{t("pending")}</h1>
     </div>
   );

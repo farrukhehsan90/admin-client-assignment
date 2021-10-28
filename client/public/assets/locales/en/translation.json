@@ -1,8 +1,8 @@
 {
   "app_title": "Title",
   "language": "Language",
-  "email":"email",
-  "password":"password",
+  "email":"Email",
+  "password":"Password",
   "Login":"Login",
   "FullName":"Full Name",
   "CompanyName":"Company Name",
@@ -21,6 +21,14 @@
   "Notifications":"Notifications",
   "Users":"Users",
   "Add New User":"Add New User",
-  "wellcome":"Wellcome Home",
-  "pending":"please wait your request is pending"
+  "wellcome":"Welcome, you're Home!",
+  "pending":"please wait your request is pending",
+  "pen":"pending",
+  "unauth":"anautorised",
+  "appr":"approved",
+  "del":"Delete",  
+  "name":"Name",
+  "status":"Status",
+  "n_f":"no user found",
+  "noti":"No Notifications yet"
 }

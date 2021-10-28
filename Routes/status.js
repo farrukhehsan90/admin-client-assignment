@@ -7,7 +7,6 @@ router.get("/", async (req, res) => {
 
   try {
     const user = await User.findOne({ userId: userId });
-    console.log(user);
     if (user) {
       res.send({ statusCode: 200, isauth: user.isAuthenticated });
     }

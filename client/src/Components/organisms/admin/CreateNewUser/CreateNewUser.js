@@ -27,9 +27,15 @@ export default function CreateNewUser() {
       .then((response) => {
         if (response.data.statusCode === 200) {
           setloading(false);
+          setfullName("");
+          setemail("");
+          setpassword("");
           alert(t("user_added"));
         } else {
           setloading(false);
+          setfullName("");
+          setemail("");
+          setpassword("");
           alert(t("user_added_err"));
         }
       })

@@ -18,10 +18,18 @@
   "Approve":"Approuver",
   "Decline":"Déclin",
   "Dashboard":"Tableau de bord",
-  "Notifications":"Notifications",
+  "Notifications":"avis",
   "Users":"Utilisateurs",
   "Add New User":"ajouter un nouvel utilisateur",
   "wellcome":"Bienvenue à la maison",
-  "pending":"veuillez patienter votre demande est en attente"
-
+  "pending":"veuillez patienter votre demande est en attente",
+     "pen":"en attendant",
+  "unauth":"non autorisé",
+  "appr":"approuvé",
+  "del":"effacer",
+  "name":"Nom",
+  "status":"statut",
+  "n_f":"aucun utilisateur trouvé",
+  "noti":"Aucune notification pour le moment",
+  "Home":"Accueil"
 }

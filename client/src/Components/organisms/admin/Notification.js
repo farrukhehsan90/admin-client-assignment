@@ -91,7 +91,7 @@ export default function Notification() {
           })}
         </Card.Group>
       ) : (
-        <p>No Notifications yet</p>
+        <p>{t("noti")}</p>
       )}
     </div>
   );

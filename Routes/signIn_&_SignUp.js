@@ -33,8 +33,26 @@ router.post("/signUp", async (req, res) => {
   }
 });
 
+router.get("/getusers", async (req, res) => {
+  try {
+    const users = await User.find({ userType: "2" });
+    res.send({ statusCode: 200, users });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.post("/deleteuser", async (req, res) => {
+  const { userId } = req.body;
+  try {
+    await User.deleteOne({ userId });
+    res.send({ statusCode: 200 });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 router.post("/signIn", async (req, res) => {
-  console.log("IN Sign IN");
   const email = req.body.email;
   const password = req.body.password;
 

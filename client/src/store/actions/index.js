@@ -1,5 +1,4 @@
 export const login = (isauth) => {
-  console.log("IN LOGIN");
   return {
     type: "LOGED_IN",
   };
@@ -20,7 +19,6 @@ export const setActiveNavItem = (item) => {
 };
 
 export const setUserType = (userType, isauth, userId) => {
-  console.log(userId);
   localStorage.setItem("userType", userType);
   localStorage.setItem("isauth", isauth);
   localStorage.setItem("userId", userId);
@@ -39,7 +37,6 @@ export const setUserType = (userType, isauth, userId) => {
 };
 
 export const setExpirationDate = () => {
-  console.log("In Expiration");
   const d = new Date();
   const newDate = new Date(new Date(d).setHours(d.getHours() + 24));
   localStorage.setItem("expirationDate", newDate);
@@ -64,11 +61,11 @@ export const checkStatus = () => {
     let expirationdate = localStorage.getItem("expirationDate");
     if (expirationdate) {
       if (now > expirationdate) {
-        console.log("IN LOGOUT");
         dispatch(logout());
       } else {
         dispatch(login());
         userId = userId.toString();
+        isauth = parseInt(isauth);
         userType = userType.toString();
         dispatch(setUserType(userType, isauth, userId));
       }

@@ -11,15 +11,12 @@ function Admin() {
   const selectedNavItem = useSelector(
     (state) => state.NavItems.selectedNavItem,
   );
-  console.log(selectedNavItem);
   const dispatch = useDispatch();
-
   const navItems = [
     { name: "Dashboard" },
     { name: "Notifications" },
     { name: "Add New User" },
   ];
-
   useEffect(() => {
     dispatch(setnavItems(navItems));
   }, [dispatch]);
@@ -42,7 +39,6 @@ function Admin() {
         return <AdminDashboard />;
     }
   };
-
   return <div>{getComponent()}</div>;
 }
 
