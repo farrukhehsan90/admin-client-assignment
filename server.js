@@ -10,8 +10,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 env.config();
 
+const url = `mongodb://${process.env.db_user}:${process.env.db_pass}@cluster0-shard-00-00.qcei4.mongodb.net:27017,cluster0-shard-00-01.qcei4.mongodb.net:27017,cluster0-shard-00-02.qcei4.mongodb.net:27017/users?ssl=true&replicaSet=atlas-li0i2t-shard-0&authSource=admin&retryWrites=true&w=majority`;
+
 mongoose
-  .connect(process.env.DB_URL, {
+  .connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

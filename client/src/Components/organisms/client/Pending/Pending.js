@@ -9,10 +9,12 @@ const Pending = (props) => {
   const id = useSelector((state) => state.User.userId);
 
   const [t] = useTranslation();
-  setInterval(() => {
+
+  let interval = setInterval(() => {
     API.get("/status?userId=" + id)
       .then((response) => {
         if (response.data.statusCode === 200) {
+          clearInterval(interval);
           dispatch(setUserType(2, response.data.isauth, id));
           props.history.push("/login");
         }
@@ -21,6 +23,12 @@ const Pending = (props) => {
         console.log(error.response);
       });
   }, 15000);
+
+  useEffect(() => {
+    return function cleanup() {
+      clearInterval(interval);
+    };
+  });
 
   return (
     <div className="text-center">

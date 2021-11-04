@@ -23,7 +23,7 @@ export default function Layout(props) {
       renderComponent = <Client />;
       break;
     default:
-      renderComponent = <h1>ERROR 320!!!!</h1>;
+      renderComponent = "";
   }
   return <div className="Layout">{renderComponent}</div>;
 }

@@ -1,3 +1,4 @@
+import API from "../../Helper/Api";
 export const login = (isauth) => {
   return {
     type: "LOGED_IN",
@@ -19,9 +20,10 @@ export const setActiveNavItem = (item) => {
 };
 
 export const setUserType = (userType, isauth, userId) => {
+  console.log("IN SET USER");
   localStorage.setItem("userType", userType);
-  localStorage.setItem("isauth", isauth);
-  localStorage.setItem("userId", userId);
+  sessionStorage.setItem("isauth", isauth);
+  sessionStorage.setItem("userId", userId);
   if (userType === "1")
     return {
       type: "ADMIN",
@@ -43,32 +45,41 @@ export const setExpirationDate = () => {
 };
 
 export const logout = () => {
+  console.log("In LOGOUT");
   localStorage.removeItem("expirationDate");
-  localStorage.removeItem("userType");
-  localStorage.removeItem("isauth");
+  sessionStorage.removeItem("userType");
+  sessionStorage.removeItem("isauth");
   localStorage.removeItem("userId");
   return {
     type: "LOG_OUT",
   };
 };
 
+const autoLogout = (id) => {
+  API.get("/waiting/reject?userId=" + id)
+    .then((response) => {})
+    .catch((error) => {
+      console.log(error.response);
+    });
+};
+
 export const checkStatus = () => {
   return (dispatch) => {
     const now = new Date();
-    let userType = localStorage.getItem("userType");
-    let isauth = localStorage.getItem("isauth");
+    let userType = sessionStorage.getItem("userType");
+    let isauth = sessionStorage.getItem("isauth");
     let userId = localStorage.getItem("userId");
     let expirationdate = localStorage.getItem("expirationDate");
     if (expirationdate) {
       if (now > expirationdate) {
-        dispatch(logout());
-      } else {
-        dispatch(login());
-        userId = userId.toString();
-        isauth = parseInt(isauth);
-        userType = userType.toString();
-        dispatch(setUserType(userType, isauth, userId));
+        dispatch(autoLogout(userId));
       }
+    } else if (isauth) {
+      dispatch(login());
+      userId = userId.toString();
+      isauth = parseInt(isauth);
+      userType = userType.toString();
+      dispatch(setUserType(userType, isauth, userId));
     }
   };
 };

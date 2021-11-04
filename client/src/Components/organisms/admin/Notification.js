@@ -64,8 +64,8 @@ export default function Notification() {
                   <Card.Header>{request.fullName}</Card.Header>
                   <Card.Meta>{request.companyName}</Card.Meta>
                   <Card.Description>
-                    {request.fullName} {t("from")} {request.companyName} wants
-                    your approval.
+                    {request.fullName} {t("from")} {request.companyName}{" "}
+                    {t("apr_message")}.
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>

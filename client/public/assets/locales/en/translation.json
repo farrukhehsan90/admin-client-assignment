@@ -30,5 +30,6 @@
   "name":"Name",
   "status":"Status",
   "n_f":"no user found",
-  "noti":"No Notifications yet"
+  "noti":"No Notifications yet",
+  "apr_message":" wants your approval"
 }

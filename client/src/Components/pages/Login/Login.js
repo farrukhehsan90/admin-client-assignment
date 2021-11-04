@@ -6,9 +6,13 @@ import { login, setUserType } from "../../../store/actions/index";
 import Input from "../../atoms/Input.js";
 import { Icon, Loader } from "semantic-ui-react";
 import "./Login.css";
+import NotifyUserModal from "../../atoms/Modal/NotifyUserModal";
 
 export default function Login(props) {
   const [t] = useTranslation();
+  const [message, setmessage] = useState("");
+  const [isopen, setisopen] = useState(false);
+  const [variant, setvariant] = useState("");
   const Login = useSelector((state) => state.Login.isLogin);
   const [userEmail, setuserEmail] = useState("");
   const [password, setpassword] = useState("");
@@ -49,7 +53,9 @@ export default function Login(props) {
           props.history.replace("/");
         } else {
           setLoading(false);
-          alert(response.data.message);
+          setmessage(response.data.message);
+          setvariant("danger");
+          setisopen(true);
         }
       })
       .catch((error) => {
@@ -59,6 +65,12 @@ export default function Login(props) {
 
   return (
     <div>
+      <NotifyUserModal
+        open={isopen}
+        message={message}
+        closeModal={() => setisopen(false)}
+        variant={variant}
+      />
       <Loader active={Loading} />
       <div className="wrapper fadeInDown">
         <div id="formContent">
