@@ -2,14 +2,22 @@
 
 ### installation
 
-    npm i
-    cd client and do npm i
-    or if you have docker setup
+    if you have docker setup
     then just do
 
     docker-compose up
 
     it will install all the packages and also start server and client too
+
+    OTHERWISE
+
+    install packages in server by doing in main directory ==> npm i
+
+     to install packages of frontend ==> cd client and then npm i
+
+    To start server => nodemon server.js
+
+    to start web => npm start
 
 ### ADMIN Credentials
 

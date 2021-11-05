@@ -22,6 +22,25 @@ export default function Notification() {
       });
   }, []);
 
+  const interval = setInterval(() => {
+    API.get("/waiting/getusers")
+      .then((response) => {
+        if (response.data.statusCode === 200) {
+          setRequests(response.data.records);
+          setLoading(false);
+        }
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  }, 20000);
+
+  useEffect(() => {
+    return function cleanup() {
+      clearInterval(interval);
+    };
+  });
+
   const handleAccept = (id) => {
     console.log("IN FUNCTION");
     setLoading(true);

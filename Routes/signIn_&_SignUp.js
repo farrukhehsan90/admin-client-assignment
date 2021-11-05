@@ -27,7 +27,10 @@ router.post("/signUp", async (req, res) => {
       .then(async (result) => {
         const email = req.body.email;
         const data = sendEmail(email, req.body.password);
-        res.send({ statusCode: 200, message: "userCreate Successfully" });
+        res.send({
+          statusCode: 200,
+          message: "user is created successfully",
+        });
       })
       .catch((err) => console.log(err));
   }
@@ -57,7 +60,7 @@ router.post("/signIn", async (req, res) => {
   const password = req.body.password;
 
   if (!email || !password) {
-    res.send({ message: "both Fields are required" });
+    res.send({ message: "Both Fields are required" });
   } else {
     try {
       const user = await User.findOne({ email });
