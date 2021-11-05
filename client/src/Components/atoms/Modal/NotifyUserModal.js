@@ -4,10 +4,13 @@ import { Alert } from "react-bootstrap";
 
 const NotifyUserModal = ({ variant, open, closeModal, message }) => {
   const [t] = useTranslation();
+  setTimeout(() => {
+    closeModal();
+  }, 10000);
   return (
     <div>
       {open ? (
-        <Alert variant={variant} onClose={() => closeModal()} dismissible>
+        <Alert variant={variant}>
           <p>{message}</p>
         </Alert>
       ) : null}
