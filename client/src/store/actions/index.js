@@ -66,16 +66,20 @@ const autoLogout = (id) => {
 export const checkStatus = () => {
   return (dispatch) => {
     const now = new Date();
-    let userType = sessionStorage.getItem("userType");
+    let userType = localStorage.getItem("userType");
     let isauth = sessionStorage.getItem("isauth");
-    let userId = localStorage.getItem("userId");
+    console.log(isauth);
+    let userId = sessionStorage.getItem("userId");
     let expirationdate = localStorage.getItem("expirationDate");
+    console.log(isauth, userId);
     if (expirationdate) {
       if (now > expirationdate) {
         dispatch(autoLogout(userId));
       }
-    } else if (isauth) {
+    }
+    if (isauth) {
       dispatch(login());
+
       userId = userId.toString();
       isauth = parseInt(isauth);
       userType = userType.toString();
