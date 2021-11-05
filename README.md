@@ -13,11 +13,13 @@
 
     install packages in server by doing in main directory ==> npm i
 
-     to install packages of frontend ==> cd client and then npm i
+    to install packages of frontend ==> cd client and then npm i
 
     To start server => nodemon server.js
 
     to start web => npm start
+
+    to run test ==> npm run test
 
 ### ADMIN Credentials
 
