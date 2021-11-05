@@ -4,7 +4,6 @@ import Login from "./Components/pages/Login/Login";
 import Layout from "./Components/pages/Layout";
 import { Route } from "react-router-dom";
 import "./App.css";
-
 import LanguageSelection from "./Components/atoms/LangSelection/LanguageSelection";
 import { checkStatus } from "./store/actions/index";
 import NavItems from "./Components/molecules/Navbar/NavItems";

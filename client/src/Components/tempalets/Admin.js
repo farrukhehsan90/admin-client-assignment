@@ -4,13 +4,12 @@ import { setnavItems } from "../../store/actions/index";
 import AdminDashboard from "../organisms/admin/AdminHome/AdminDashboard";
 import Notification from "../organisms/admin/Notification";
 import CreateNewUser from "../organisms/admin/CreateNewUser/CreateNewUser";
-import { useTranslation } from "react-i18next";
 
 function Admin() {
-  const [t] = useTranslation();
   const selectedNavItem = useSelector(
     (state) => state.NavItems.selectedNavItem,
   );
+  console.log(selectedNavItem);
   const dispatch = useDispatch();
   const navItems = [
     { name: "Dashboard" },

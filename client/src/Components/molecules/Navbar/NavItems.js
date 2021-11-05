@@ -28,6 +28,7 @@ export default function NavItems(props) {
             {navItems.map((item, index) => {
               return (
                 <Menu.Item
+                  className="navitems"
                   name={t(item.name)}
                   active={item.name === activeItem}
                   onClick={(e) => dispatch(setActiveNavItem(item.name))}

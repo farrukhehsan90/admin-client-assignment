@@ -5,7 +5,7 @@ const env = require("dotenv");
 const mongoose = require("mongoose");
 const status = require("./Routes/status");
 const signIn_signUp = require("./Routes/signIn_&_SignUp");
-const waiting = require("./Routes/Waiting");
+const waiting = require("./Routes/waiting");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 env.config();

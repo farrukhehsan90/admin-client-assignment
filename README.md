@@ -1,24 +1,30 @@
-clone this app and then do npm i to install all pakages and then go to client folder and also do npm i
+### Geting Started
 
 ### installation
 
     npm i
     cd client and do npm i
+    or if you have docker setup
+    then just do
 
-### Running
+    docker-compose up
 
-do npm run server
-open another terminal and do npm start
+    it will install all the packages and also start server and client too
 
 ### ADMIN Credentials
 
 email :: admin@gmail.com
 password :: 12345
 
-### Functionality
+### Execution
 
-admin can login with above credentails from there he can create clients so initally that client will be in unauthorised state . When client login first time he needs to enter Full Name and company name after success he will be in pending state. Admin will be notify that client wants your approvel for login when admin will approve that client will be in authorised state and can do his work. If admin reject his request he will be on login screen.
+In browser go to localhost:3000 and login as admin by above credentails.
 
-### warning
+Now go to Create New User Tab create new user.
 
-Please do not run it concurrently it will cause some bugs.
+you can see on dashboard the newly create user has status unauthorized means when he login he can not
+simply go to dashboard but he will prompted with screen where he has to enter full name and company name.
+
+Now open another tab here you can login using newly created user credentails here you have to enter
+full name and company name. once you have eneterd the information. Now request will be sent to admin and if admin
+will accept it user will be on dashboard other wise back to login screen. untill than user has to wait in pending.
