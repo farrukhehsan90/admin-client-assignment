@@ -77,7 +77,7 @@ export default function CreateNewUser() {
             className="input-box login-input-box-email"
           />
 
-          {err ? <p style={{ color: "red" }}>enter valid email</p> : null}
+          {err ? <p style={{ color: "red" }}>Enter valid email</p> : null}
 
           <input
             placeholder={t("email")}
